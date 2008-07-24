@@ -1,6 +1,6 @@
 Name:           doom-shareware
 Version:        1.9
-Release:        4.s%{?dist}
+Release:        5.s%{?dist}
 Summary:        Official shareware game files for DOOM
 Group:          Amusements/Games
 License:        Distributable
@@ -64,6 +64,9 @@ touch --no-create %{_datadir}/icons/hicolor || :
 
 
 %changelog
+* Thu Jul 24 2008 Hans de Goede <j.w.r.degoede@hhs.nl> 1.9-5.s
+- Release bump for rpmfusion build
+
 * Tue Mar 27 2007 Hans de Goede <j.w.r.degoede@hhs.nl> 1.9-4.s
 - Fix unowned /usr/share/doom-shareware directory
 
