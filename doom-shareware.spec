@@ -1,6 +1,6 @@
 Name:           doom-shareware
 Version:        1.9
-Release:        8.s%{?dist}
+Release:        9.s%{?dist}
 Summary:        Official shareware game files for DOOM
 Group:          Amusements/Games
 License:        Distributable
@@ -64,6 +64,9 @@ touch --no-create %{_datadir}/icons/hicolor || :
 
 
 %changelog
+* Sun Aug 31 2014 Sérgio Basto <sergio@serjux.com> - 1.9-9.s
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_22_Mass_Rebuild
+
 * Tue Mar 12 2013 Nicolas Chauvet <kwizart@gmail.com> - 1.9-8.s
 - https://fedoraproject.org/wiki/Fedora_19_Mass_Rebuild
 
