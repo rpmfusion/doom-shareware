@@ -1,21 +1,21 @@
 Name:           doom-shareware
 Version:        1.9
-Release:        9.s%{?dist}
+Release:        10.s%{?dist}
 Summary:        Official shareware game files for DOOM
 Group:          Amusements/Games
 License:        Distributable
 URL:            http://www.idsoftware.com
 Source0:        ftp://ftp.idsoftware.com/idstuff/doom/doom19s.zip
-Source1:        doom19s.desktop
+Source1:        doom-shareware.metainfo.xml
 Source2:        doom-shareware-wad-license.txt
-Source3:        doom-logo.png
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-BuildRequires:  desktop-file-utils
+BuildRequires:  libappstream-glib
 BuildArch:      noarch
-Requires:       prboom hicolor-icon-theme
+Supplements:    chocolate-doom prboom vavoom
 
 %description
-The official iwad file for the shareware version of Doom.
+The official iwad file for the shareware version of Doom. This can be
+played with a doom engine of your choice, i.e. chocolate-doom, prboom
+or vavoom.
 
 
 %prep
@@ -31,39 +31,34 @@ sed -i 's/\r//' README.TXT
 
 
 %install
-rm -rf $RPM_BUILD_ROOT
-install -pD -m 0644 DOOM1.WAD $RPM_BUILD_ROOT%{_datadir}/%{name}/DOOM1.WAD
-
-desktop-file-install --vendor livna                             \
-        --dir ${RPM_BUILD_ROOT}%{_datadir}/applications         \
-        %{SOURCE1}
-
-mkdir -p $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/48x48/apps/
-install -p -m 644 %{SOURCE3} $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/48x48/apps/
-
-
-%clean
-rm -rf $RPM_BUILD_ROOT
-
-
-%post
-touch --no-create %{_datadir}/icons/hicolor || :
-%{_bindir}/gtk-update-icon-cache --quiet %{_datadir}/icons/hicolor || :
-
-%postun
-touch --no-create %{_datadir}/icons/hicolor || :
-%{_bindir}/gtk-update-icon-cache --quiet %{_datadir}/icons/hicolor || :
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/games/doom
+install -pD -m 0644 DOOM1.WAD $RPM_BUILD_ROOT%{_datadir}/games/doom/doom1.wad
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/appdata
+install -p -m 644 %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/appdata
+appstream-util validate-relax --nonet \
+  $RPM_BUILD_ROOT%{_datadir}/appdata/%{name}.metainfo.xml
 
 
 %files
-%defattr(-,root,root,-)
-%{_datadir}/%{name}
-%{_datadir}/applications/*.desktop
-%{_datadir}/icons/hicolor/48x48/apps/*.png
-%doc README.TXT doom-shareware-wad-license.txt
+%doc README.TXT
+%license doom-shareware-wad-license.txt
+%{_datadir}/games/doom
+%{_datadir}/appdata/%{name}.metainfo.xml
 
 
 %changelog
+* Mon Jan  4 2016 Hans de Goede <j.w.r.degoede@gmail.com> - 1.9-10.s
+- Stop providing a launcher / icon this results in doom showing twice in
+  the app menu when users also have vavoom from Fedora installed which
+  is quite ugly / confusing. The launcher shipped with vavoom >= 1.33-15
+  will use the wad file from this pkg if present (rf#411)
+- Simply start "prboom" to get the old launcher behavior
+- Move the wad file from /usr/share/doom-shareware/DOOM1.WAD to
+  /usr/share/games/doom/doom1.wad where most implementations will
+  automatically find it
+- Add an appstream metainfo file making this an addon to chocolate-doom,
+  prboom and vavoom
+
 * Sun Aug 31 2014 Sérgio Basto <sergio@serjux.com> - 1.9-9.s
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_21_22_Mass_Rebuild
 

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component type="addon">
+  <id>doom-shareware-data</id>
+  <extends>vavoom.desktop</extends>
+  <extends>prboom.desktop</extends>
+  <extends>chocolate-doom.desktop</extends>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>proprietary</project_license>
+  <name>Doom shareware datafiles</name>
+  <summary>
+   This package installs the Doom shareware doom1.wad for use with various doom engines.
+  </summary>
+  <url type="homepage">https://en.wikipedia.org/wiki/Doom_%281993_video_game%29</url>
+  <updatecontact>jwrdegoede_at_gmail.com</updatecontact>
+</component>
