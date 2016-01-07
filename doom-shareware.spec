@@ -10,7 +10,9 @@ Source1:        doom-shareware.metainfo.xml
 Source2:        doom-shareware-wad-license.txt
 BuildRequires:  libappstream-glib
 BuildArch:      noarch
-Supplements:    chocolate-doom prboom vavoom
+# Uncomment this once rpm on the buildsys is new enough
+#Supplements:    chocolate-doom prboom vavoom
+#Suggests:       vavoom-doom-shareware
 
 %description
 The official iwad file for the shareware version of Doom. This can be

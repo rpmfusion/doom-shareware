@@ -4,6 +4,7 @@
   <extends>vavoom.desktop</extends>
   <extends>prboom.desktop</extends>
   <extends>chocolate-doom.desktop</extends>
+  <extends>doom-shareware.desktop</extends>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>proprietary</project_license>
   <name>Doom shareware datafiles</name>
