@@ -1,6 +1,6 @@
 Name:           doom-shareware
 Version:        1.9
-Release:        10.s%{?dist}
+Release:        11.s%{?dist}
 Summary:        Official shareware game files for DOOM
 Group:          Amusements/Games
 License:        Distributable
@@ -49,6 +49,9 @@ appstream-util validate-relax --nonet \
 
 
 %changelog
+* Sat Mar 25 2017 RPM Fusion Release Engineering <kwizart@rpmfusion.org> - 1.9-11.s
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
+
 * Mon Jan  4 2016 Hans de Goede <j.w.r.degoede@gmail.com> - 1.9-10.s
 - Stop providing a launcher / icon this results in doom showing twice in
   the app menu when users also have vavoom from Fedora installed which
