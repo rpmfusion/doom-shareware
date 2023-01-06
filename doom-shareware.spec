@@ -4,7 +4,7 @@ Release:        23.s%{?dist}
 Summary:        Official shareware game files for DOOM
 Group:          Amusements/Games
 License:        Distributable
-URL:            http://www.idsoftware.com
+URL:            https://www.idsoftware.com
 Source0:        ftp://ftp.idsoftware.com/idstuff/doom/doom19s.zip
 Source1:        doom-shareware.metainfo.xml
 Source2:        doom-shareware-wad-license.txt
