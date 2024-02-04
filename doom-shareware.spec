@@ -1,6 +1,6 @@
 Name:           doom-shareware
 Version:        1.9
-Release:        24.s%{?dist}
+Release:        25.s%{?dist}
 Summary:        Official shareware game files for DOOM
 Group:          Amusements/Games
 License:        Distributable
@@ -49,6 +49,9 @@ appstream-util validate-relax --nonet \
 
 
 %changelog
+* Sun Feb 04 2024 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 1.9-25.s
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_40_Mass_Rebuild
+
 * Thu Aug 03 2023 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 1.9-24.s
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_39_Mass_Rebuild
 
